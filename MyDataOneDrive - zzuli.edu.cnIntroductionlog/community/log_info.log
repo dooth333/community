@@ -1,0 +1,41 @@
+2022-02-26 15:38:57,716 INFO [restartedMain] c.w.c.CommunityApplication [StartupInfoLogger.java:55] Starting CommunityApplication using Java 17.0.2 on DESKTOP-UMH167D with PID 19936 (D:\MyData\OneDrive - zzuli.edu.cn\Introduction\ideaProjects\community\target\classes started by dooth in D:\MyData\OneDrive - zzuli.edu.cn\Introduction\ideaProjects\community)
+2022-02-26 15:38:57,717 INFO [restartedMain] c.w.c.CommunityApplication [SpringApplication.java:637] No active profile set, falling back to default profiles: default
+2022-02-26 15:38:57,958 INFO [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:132] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-02-26 15:38:57,963 INFO [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:201] Finished Spring Data repository scanning in 4 ms. Found 0 JPA repository interfaces.
+2022-02-26 15:38:58,065 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:108] Tomcat initialized with port(s): 8080 (http)
+2022-02-26 15:38:58,066 INFO [restartedMain] o.a.c.c.StandardService [DirectJDKLog.java:173] Starting service [Tomcat]
+2022-02-26 15:38:58,066 INFO [restartedMain] o.a.c.c.StandardEngine [DirectJDKLog.java:173] Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-02-26 15:38:58,094 INFO [restartedMain] o.a.c.c.C.[.[.[/community] [DirectJDKLog.java:173] Initializing Spring embedded WebApplicationContext
+2022-02-26 15:38:58,095 INFO [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java:290] Root WebApplicationContext: initialization completed in 375 ms
+2022-02-26 15:38:58,120 INFO [restartedMain] c.z.h.HikariDataSource [HikariDataSource.java:110] HikariPool-4 - Starting...
+2022-02-26 15:38:58,124 INFO [restartedMain] c.z.h.HikariDataSource [HikariDataSource.java:123] HikariPool-4 - Start completed.
+2022-02-26 15:38:58,130 INFO [restartedMain] o.h.j.i.u.LogHelper [LogHelper.java:31] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-02-26 15:38:58,136 INFO [restartedMain] o.h.d.Dialect [Dialect.java:175] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-02-26 15:38:58,142 INFO [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator [JtaPlatformInitiator.java:52] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-02-26 15:38:58,143 INFO [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean [AbstractEntityManagerFactoryBean.java:437] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-02-26 15:38:58,254 INFO [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2022-02-26 15:38:58,312 INFO [restartedMain] o.s.b.d.a.OptionalLiveReloadServer [OptionalLiveReloadServer.java:58] LiveReload server is running on port 35729
+2022-02-26 15:38:58,323 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:220] Tomcat started on port(s): 8080 (http) with context path '/community'
+2022-02-26 15:38:58,326 INFO [restartedMain] c.w.c.CommunityApplication [StartupInfoLogger.java:61] Started CommunityApplication in 0.699 seconds (JVM running for 3003.756)
+2022-02-26 15:38:58,328 INFO [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [ConditionEvaluationDeltaLoggingListener.java:63] Condition evaluation unchanged
+2022-02-26 15:38:58,495 INFO [main] c.w.c.LoggerTests [StartupInfoLogger.java:55] Starting LoggerTests using Java 17.0.2 on DESKTOP-UMH167D with PID 20744 (started by dooth in D:\MyData\OneDrive - zzuli.edu.cn\Introduction\ideaProjects\community)
+2022-02-26 15:38:58,496 INFO [main] c.w.c.LoggerTests [SpringApplication.java:637] No active profile set, falling back to default profiles: default
+2022-02-26 15:38:59,229 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:132] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-02-26 15:38:59,257 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:201] Finished Spring Data repository scanning in 15 ms. Found 0 JPA repository interfaces.
+2022-02-26 15:38:59,935 INFO [main] c.z.h.HikariDataSource [HikariDataSource.java:110] HikariPool-1 - Starting...
+2022-02-26 15:39:00,102 INFO [main] c.z.h.HikariDataSource [HikariDataSource.java:123] HikariPool-1 - Start completed.
+2022-02-26 15:39:00,169 INFO [main] o.h.j.i.u.LogHelper [LogHelper.java:31] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-02-26 15:39:00,221 INFO [main] o.h.Version [Version.java:44] HHH000412: Hibernate ORM core version 5.6.4.Final
+2022-02-26 15:39:00,379 INFO [main] o.h.a.c.Version [JavaReflectionManager.java:56] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-02-26 15:39:00,586 INFO [main] o.h.d.Dialect [Dialect.java:175] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-02-26 15:39:00,796 INFO [main] o.h.e.t.j.p.i.JtaPlatformInitiator [JtaPlatformInitiator.java:52] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-02-26 15:39:00,810 INFO [main] o.s.o.j.LocalContainerEntityManagerFactoryBean [AbstractEntityManagerFactoryBean.java:437] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-02-26 15:39:01,785 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2022-02-26 15:39:02,180 INFO [main] c.w.c.LoggerTests [StartupInfoLogger.java:61] Started LoggerTests in 4.112 seconds (JVM running for 5.044)
+2022-02-26 15:39:02,521 INFO [main] c.w.c.LoggerTests [LoggerTests.java:27] infoLog
+2022-02-26 15:39:02,534 INFO [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean [AbstractEntityManagerFactoryBean.java:651] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-02-26 15:39:02,536 INFO [SpringApplicationShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:350] HikariPool-1 - Shutdown initiated...
+2022-02-26 15:39:02,542 INFO [SpringApplicationShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:352] HikariPool-1 - Shutdown completed.
+2022-02-26 15:42:55,727 INFO [Thread-15] o.s.o.j.LocalContainerEntityManagerFactoryBean [AbstractEntityManagerFactoryBean.java:651] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-02-26 15:42:55,728 INFO [Thread-15] c.z.h.HikariDataSource [HikariDataSource.java:350] HikariPool-4 - Shutdown initiated...
+2022-02-26 15:42:55,729 INFO [Thread-15] c.z.h.HikariDataSource [HikariDataSource.java:352] HikariPool-4 - Shutdown completed.

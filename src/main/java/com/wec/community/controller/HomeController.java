@@ -5,6 +5,7 @@ import com.wec.community.entity.Page;
 import com.wec.community.entity.User;
 import com.wec.community.service.DiscussPostService;
 import com.wec.community.service.UserService;
+import com.wec.community.util.HostHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +25,8 @@ public class HomeController {
 
     @Autowired
     private UserService userService;
-
+    @Autowired
+    private HostHolder hostHolder;
     @RequestMapping(path = "/index",method = RequestMethod.GET)
     public String getIndexPage(Model model, Page page){
         //方法调用之前，SpringMVC会自动实例化Model,并将Page注入Model
@@ -43,6 +45,7 @@ public class HomeController {
                 discussPosts.add(map);
             }
         }
+        User user = hostHolder.getUser();
         model.addAttribute("discussPosts",discussPosts);
         return "/index";
     }

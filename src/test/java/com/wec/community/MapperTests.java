@@ -1,7 +1,9 @@
 package com.wec.community;
 import com.wec.community.dao.DiscussPostMapper;
+import com.wec.community.dao.LoginTicketMapper;
 import com.wec.community.dao.UserMapper;
 import com.wec.community.entity.DiscussPost;
+import com.wec.community.entity.LoginTicket;
 import com.wec.community.entity.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,9 @@ import java.util.List;
 
         @Autowired
         private DiscussPostMapper discussPostMapper;
+
+        @Autowired
+        private LoginTicketMapper loginTicketMapper;
 
         @Test
         public void testSelectUser(){
@@ -56,6 +61,20 @@ import java.util.List;
             }
             int rows = discussPostMapper.selectDiscussPostRows(0);
             System.out.println(rows);
+        }
+
+        @Test
+        public void testInsertLoginTicket(){
+           LoginTicket loginTicket = new LoginTicket(1,123,"abc",0,new Date(System.currentTimeMillis()+1000*60*10));
+           loginTicketMapper.insertLoginTicket(loginTicket);
+        }
+        @Test
+        public void testUpdateLoginTicket(){
+            LoginTicket loginTicket = loginTicketMapper.selectByTicket("abc");
+            System.out.println(loginTicket);
+            loginTicketMapper.updateStatus("abc",1);
+            loginTicket = loginTicketMapper.selectByTicket("abc");
+            System.out.println(loginTicket);
         }
     }
 

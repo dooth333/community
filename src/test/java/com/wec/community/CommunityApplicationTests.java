@@ -1,8 +1,7 @@
 package com.wec.community;
 
+
 import com.wec.community.dao.AlphaDao;
-import com.wec.community.dao.UserMapper;
-import com.wec.community.entity.User;
 import com.wec.community.service.AlphaService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.BeansException;

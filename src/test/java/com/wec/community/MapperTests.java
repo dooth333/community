@@ -7,6 +7,7 @@ import com.wec.community.entity.LoginTicket;
 import com.wec.community.entity.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import java.util.Date;
@@ -25,6 +26,13 @@ import java.util.List;
         @Autowired
         private LoginTicketMapper loginTicketMapper;
 
+        @Value("${community.path.upload}")
+        private String uploadPath;
+
+        @Test
+        public void print(){
+            System.out.println(uploadPath);
+        }
         @Test
         public void testSelectUser(){
             User user = userMapper.selectById(11);

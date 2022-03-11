@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
+
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -111,5 +113,11 @@ import java.util.List;
             int i2 = messageMapper.selectLetterUnreadCount(131, "111_131");
             System.out.println(i2);
         }
+
+    @Test
+    public void messageTest2(){
+            List<Integer> ids = new ArrayList<>();
+          messageMapper.updateStatus(ids,0);
+    }
     }
 

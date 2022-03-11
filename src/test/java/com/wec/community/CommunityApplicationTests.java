@@ -2,6 +2,8 @@ package com.wec.community;
 
 
 import com.wec.community.dao.AlphaDao;
+import com.wec.community.dao.DiscussPostMapper;
+import com.wec.community.entity.DiscussPost;
 import com.wec.community.service.AlphaService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.BeansException;
@@ -55,6 +57,15 @@ class CommunityApplicationTests implements ApplicationContextAware {
 	public void testDI(){
 		System.out.println(alphaDao);
 		System.out.println(alphaService);
+	}
+
+	@Autowired
+	private DiscussPostMapper discussPostMapper;
+	@Test
+	public void insertPostText(){
+		DiscussPost discussPost = new DiscussPost(001,"有钱没钱回家过年","过年了过年了过年了",0,0,new Date(),0,0);
+
+		discussPostMapper.insertDiscussPost(discussPost);
 	}
 
 }

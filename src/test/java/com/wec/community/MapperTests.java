@@ -1,10 +1,6 @@
 package com.wec.community;
-import com.wec.community.dao.DiscussPostMapper;
-import com.wec.community.dao.LoginTicketMapper;
-import com.wec.community.dao.UserMapper;
-import com.wec.community.entity.DiscussPost;
-import com.wec.community.entity.LoginTicket;
-import com.wec.community.entity.User;
+import com.wec.community.dao.*;
+import com.wec.community.entity.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,8 +22,14 @@ import java.util.List;
         @Autowired
         private LoginTicketMapper loginTicketMapper;
 
+        @Autowired
+        private CommentMapper commentMapper;
+
         @Value("${community.path.upload}")
         private String uploadPath;
+
+        @Autowired
+        private MessageMapper messageMapper;
 
         @Test
         public void print(){
@@ -83,6 +85,31 @@ import java.util.List;
             loginTicketMapper.updateStatus("abc",1);
             loginTicket = loginTicketMapper.selectByTicket("abc");
             System.out.println(loginTicket);
+        }
+
+        @Test
+        public void commentTest(){
+            List<Comment> comments = commentMapper.selectCommentsByEntity(1, 234, 1, 5);
+            System.out.println(comments);
+            int i = commentMapper.selectCountByEntity(1, 234);
+            System.out.println(i);
+        }
+
+        @Test
+        public void messageTest(){
+            List<Message> messagesList = messageMapper.selectConversation(111, 0, 20);
+            for (Message ms : messagesList){
+                System.out.println(ms);
+            }
+            int i = messageMapper.selectConversationCount(111);
+            System.out.println(i);
+
+            List<Message> list = messageMapper.selectLetters("111_112", 0, 10);
+            list.forEach(System.out::println);
+            int i1 = messageMapper.selectLetterCount("111_112");
+            System.out.println(i1);
+            int i2 = messageMapper.selectLetterUnreadCount(131, "111_131");
+            System.out.println(i2);
         }
     }
 

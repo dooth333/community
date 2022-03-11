@@ -17,8 +17,7 @@ public class DiscussPost {
     public DiscussPost() {
     }
 
-    public DiscussPost(int id, int userId, String title, String content, int type, int status, Date createTime, int commentCount, double score) {
-        this.id = id;
+    public DiscussPost( int userId, String title, String content, int type, int status, Date createTime, int commentCount, double score) {
         this.userId = userId;
         this.title = title;
         this.content = content;

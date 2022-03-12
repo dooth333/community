@@ -28,6 +28,7 @@ public class MassageController {
     //私信列表
     @RequestMapping(path = "/letter/list",method = RequestMethod.GET)
     public String getLetterList(Model model, Page page){
+
         User user = hostHolder.getUser();
         //分页信息
         page.setLimit(5);

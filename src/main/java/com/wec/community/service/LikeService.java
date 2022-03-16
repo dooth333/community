@@ -15,7 +15,7 @@ public class LikeService {
 
     //点赞
     //加上记录用户点赞个数后需要事务
-    public void like (int userId,int entityType,int entityId,int entityUserId){
+    public void like (int userId,int entityType,int entityId,Integer entityUserId){
         redisTemplate.execute(new SessionCallback() {
             @Override
             public Object execute(RedisOperations operations) throws DataAccessException {

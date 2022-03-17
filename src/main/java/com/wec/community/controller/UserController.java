@@ -2,8 +2,10 @@ package com.wec.community.controller;
 
 import com.wec.community.annotation.LoginRequired;
 import com.wec.community.entity.User;
+import com.wec.community.service.FollowService;
 import com.wec.community.service.LikeService;
 import com.wec.community.service.UserService;
+import com.wec.community.util.CommunityConstant;
 import com.wec.community.util.CommunityUtil;
 import com.wec.community.util.HostHolder;
 import org.apache.commons.lang3.StringUtils;
@@ -29,7 +31,7 @@ import java.io.OutputStream;
 
 @Controller
 @RequestMapping("/user")
-public class UserController {
+public class UserController implements CommunityConstant {
 
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
@@ -50,6 +52,9 @@ public class UserController {
 
     @Autowired
     private LikeService likeService;
+
+    @Autowired
+    private FollowService followService;
 
     @LoginRequired
     @RequestMapping(path = "/setting",method = RequestMethod.GET)
@@ -172,6 +177,24 @@ public class UserController {
         int likeCount = likeService.findUserLikeCount(userId);
         model.addAttribute("likeCount",likeCount);
 
+        //查询关注数量
+        long followeeCount = followService.findFolloweeCount(userId, ENTITY_TYPE_USER);
+        model.addAttribute("followeeCount",followeeCount);
+
+        //粉丝数量
+        long followerCount = followService.findFollowerCount(ENTITY_TYPE_USER, userId);
+        model.addAttribute("followerCount",followerCount);
+
+
+        //是否已关注
+        boolean hasFollowed = false;
+        if (hostHolder.getUser() != null){
+            hasFollowed = followService.hasFollowed(hostHolder.getUser().getId(),ENTITY_TYPE_USER,userId);
+            model.addAttribute("loginUser",hostHolder.getUser());
+            model.addAttribute("hasFollowed",hasFollowed);
+        }else{
+            model.addAttribute("loginUser",null);
+        }
         return "/site/profile";
     }
 }

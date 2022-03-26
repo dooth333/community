@@ -1,8 +1,10 @@
 package com.wec.community.controller;
 
 import com.wec.community.annotation.LoginRequired;
+import com.wec.community.entity.Event;
 import com.wec.community.entity.Page;
 import com.wec.community.entity.User;
+import com.wec.community.event.EventProducer;
 import com.wec.community.service.FollowService;
 import com.wec.community.service.UserService;
 import com.wec.community.util.CommunityConstant;
@@ -30,6 +32,9 @@ public class FollowController implements CommunityConstant {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private EventProducer eventProducer;
+
     //关注
     @LoginRequired //设置登录拦截
     @RequestMapping(path = "/follow",method = RequestMethod.POST)
@@ -37,6 +42,16 @@ public class FollowController implements CommunityConstant {
     public String follow(int entityType, int entityId){
         User user = hostHolder.getUser();
         followService.follow(user.getId(), entityType,entityId);
+
+        //触发关注事件
+        Event event = new Event()
+                .setTopic(TOPIC_FOLLOW)
+                .setUserId(hostHolder.getUser().getId())
+                .setEntityType(entityType)
+                .setEntityId(entityId)
+                .setEntityUserId(entityId);
+        eventProducer.fireEvent(event);
+
         return CommunityUtil.getJSONString(0,"已关注");
     }
 

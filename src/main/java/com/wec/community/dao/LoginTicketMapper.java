@@ -4,6 +4,7 @@ import com.wec.community.entity.LoginTicket;
 import org.apache.ibatis.annotations.*;
 
 @Mapper //声明mapper对象
+@Deprecated //声明该组件不推荐使用了
 public interface LoginTicketMapper {
 
     //增加凭证

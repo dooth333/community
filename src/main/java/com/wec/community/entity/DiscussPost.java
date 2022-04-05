@@ -9,7 +9,7 @@ import javax.xml.crypto.Data;
 import java.util.Date;
 
 //ES注解
-@Document(indexName = "discusspost", shards = 6, replicas = 3)
+@Document(indexName = "discusspost",type="_doc", shards = 6, replicas = 3)
 public class DiscussPost {
     @Id
     private int id;

@@ -41,12 +41,44 @@ public class DiscussPostService {
         return discussPostMapper.insertDiscussPost(post);
     }
 
+    /**
+     * 通过id找帖子
+     * @param id 帖子id
+     * @return
+     */
     public DiscussPost findDiscussPostById(int id){
         return discussPostMapper.selectDiscussPostById(id);
     }
 
+    /***
+     * 更新评论数量
+     * @param id 要更新的帖子id
+     * @param CommentCount  要更新的数量
+     * @return
+     */
     public int updateCommentCount(int id,int CommentCount){
         return discussPostMapper.updateCommentCount(id,CommentCount);
+    }
+
+
+    /***
+     * 修改帖子类型
+     * @param id 要改的帖子id
+     * @param type 要改成的类型
+     * @return
+     */
+    public int updateType(int id,int type){
+        return discussPostMapper.updateType(id, type);
+    }
+
+    /***
+     * 修改帖子状态
+     * @param id 要改的帖子id
+     * @param status 要改成的状态
+     * @return
+     */
+    public int updateStatus(int id,int status){
+        return discussPostMapper.updateStatus(id, status);
     }
 
 

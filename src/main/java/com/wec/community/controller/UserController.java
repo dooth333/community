@@ -56,6 +56,10 @@ public class UserController implements CommunityConstant {
     @Autowired
     private FollowService followService;
 
+    /***
+     * 用户设置
+     * @return
+     */
     @LoginRequired
     @RequestMapping(path = "/setting",method = RequestMethod.GET)
     public String getSettingPage(){
@@ -132,6 +136,7 @@ public class UserController implements CommunityConstant {
         }
     }
 
+
     /**
      * 修改密码
      * @param oldPassword
@@ -164,7 +169,13 @@ public class UserController implements CommunityConstant {
         return "redirect:/logout";
     }
 
-    //个人主页
+
+    /***
+     * 个人主页
+     * @param userId
+     * @param model
+     * @return
+     */
     @RequestMapping(path = "/profile/{userId}",method = RequestMethod.GET)
     public String getProfilePage(@PathVariable("userId")int userId,Model model){
         User user = userService.findUserById(userId);

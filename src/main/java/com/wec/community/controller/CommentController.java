@@ -32,6 +32,12 @@ public class CommentController implements CommunityConstant {
     @Autowired
     private DiscussPostService discussPostService;
 
+    /***
+     * 评论帖子或评论
+     * @param discussPostId 被评论的id
+     * @param comment 回复内容
+     * @return
+     */
     @RequestMapping(value = "/add/{discussPostId}",method = RequestMethod.POST)
     public String addComment(@PathVariable("discussPostId") int discussPostId, Comment comment){
         comment.setUserId(hostHolder.getUser().getId());

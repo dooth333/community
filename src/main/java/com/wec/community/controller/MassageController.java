@@ -24,12 +24,18 @@ public class MassageController implements CommunityConstant {
 
     @Autowired
     private MessageService messageService;
+
     @Autowired
     private HostHolder hostHolder;
+
     @Autowired
     private UserService userService;
 
-    //私信列表
+
+    /***
+     * 私信列表
+     * @return
+     */
     @RequestMapping(path = "/letter/list",method = RequestMethod.GET)
     public String getLetterList(Model model, Page page){
 
@@ -60,6 +66,11 @@ public class MassageController implements CommunityConstant {
         return "/site/letter";
     }
 
+    /***
+     * 私信详情
+     * @param conversationId 对话id
+     * @return
+     */
     @RequestMapping(path = "/letter/detail/{conversationId}",method = RequestMethod.GET)
     public String getLetterDetail(@PathVariable("conversationId") String conversationId,Page page,Model model){
         //分页信息设置
@@ -115,6 +126,12 @@ public class MassageController implements CommunityConstant {
     }
 
 
+    /***
+     * 发送私信
+     * @param toName 目标用户名
+     * @param content 内容
+     * @return
+     */
     @RequestMapping(path = "/letter/send",method = RequestMethod.POST)
     @ResponseBody
     public String sendLetter(String toName,String content){
@@ -137,6 +154,11 @@ public class MassageController implements CommunityConstant {
         return CommunityUtil.getJSONString(0);
     }
 
+    /***
+     * 系统通知
+     * @param model
+     * @return
+     */
     @RequestMapping(path = "/notice/list",method = RequestMethod.GET)
     public String getNoticeList(Model model){
         User user = hostHolder.getUser();
@@ -220,6 +242,13 @@ public class MassageController implements CommunityConstant {
         return "/site/notice";
     }
 
+    /***
+     * 系统通知详情页面
+     * @param topic
+     * @param page
+     * @param model
+     * @return
+     */
     @RequestMapping(path = "/notice/detail/{topic}",method = RequestMethod.GET)
     public String getNoticeDetail(@PathVariable("topic") String topic,Page page,Model model){
         User user = hostHolder.getUser();

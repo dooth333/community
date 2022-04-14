@@ -17,8 +17,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Autowired
     private LoginTicketInterceptor loginTicketInterceptor;
 
-    @Autowired
-    private LoginRequiredInterceptor loginRequiredInterceptor;
+/*    @Autowired
+    private LoginRequiredInterceptor loginRequiredInterceptor;*/
 
     @Autowired
     private MessageInterceptor messageInterceptor;
@@ -32,8 +32,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 .excludePathPatterns("/**/*.css","/**/*.js","/**/*.png","/**/*.jpg","/**/*.jpeg");//设置排除拦截的目录(/**表示目录下所有文件夹)
                 //设置拦截全部请求（不设置add）
 
-        registry.addInterceptor(loginRequiredInterceptor)//增加拦截
-                .excludePathPatterns("/**/*.css","/**/*.js","/**/*.png","/**/*.jpg","/**/*.jpeg");//设置排除拦截的目录(/**表示目录下所有文件夹)
+//        registry.addInterceptor(loginRequiredInterceptor)//增加拦截
+//        .excludePathPatterns("/**/*.css","/**/*.js","/**/*.png","/**/*.jpg","/**/*.jpeg");//设置排除拦截的目录(/**表示目录下所有文件夹)
                 //设置拦截全部请求（不设置add）
 
         registry.addInterceptor(messageInterceptor)//增加拦截

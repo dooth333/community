@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
@@ -47,17 +48,31 @@ public class LoginController implements CommunityConstant {
     @Value("${server.servlet.context-path}")
     private String contextPath;
 
+    /***
+     * 注册
+     * @return
+     */
     @RequestMapping(path = "/register",method = RequestMethod.GET)
     public String getRegisterPage(){
         return "/site/register";
     }
 
 
+    /***
+     * 登录
+     * @return
+     */
     @RequestMapping(path = "/login",method = RequestMethod.GET)
     public String getLoginPage(){
         return "/site/login";
     }
 
+    /***
+     * 注册
+     * @param model
+     * @param user
+     * @return
+     */
     @RequestMapping(path = "/register",method = RequestMethod.POST)
     public String register(Model model, User user){
         Map<String, Object> map = userService.register(user);
@@ -74,6 +89,13 @@ public class LoginController implements CommunityConstant {
         }
     }
 
+    /***
+     * 账号激活
+     * @param model
+     * @param userId
+     * @param code
+     * @return
+     */
     @RequestMapping(path = "/activation/{userId}/{code}",method = RequestMethod.GET)
     public String activation(Model model, @PathVariable("userId") int userId,@PathVariable("code")String code){
         int result = userService.activation(userId, code);
@@ -90,6 +112,10 @@ public class LoginController implements CommunityConstant {
         return "/site/operate-result";
     }
 
+    /***
+     * 验证码
+     * @param response
+     */
     //使用Redis重构
     @RequestMapping(path = "/kaptcha",method = RequestMethod.GET)
     public void getKaptcha(HttpServletResponse response/*,HttpSession session*/){//验证码为敏感数据，所以用session存储
@@ -122,6 +148,17 @@ public class LoginController implements CommunityConstant {
         }
     }
 
+    /***
+     * 登录
+     * @param username
+     * @param password
+     * @param code
+     * @param remember
+     * @param model
+     * @param response
+     * @param kaptchaOwner
+     * @return
+     */
     @RequestMapping(path = "/login",method = RequestMethod.POST)
     public String login(String username,String password,String code,boolean remember,Model model/*,HttpSession session*/,
                         HttpServletResponse response,@CookieValue("kaptchaOwner") String kaptchaOwner){
@@ -160,9 +197,16 @@ public class LoginController implements CommunityConstant {
             return "site/login";
         }
     }
+
+    /***
+     * 退出
+     * @param ticket
+     * @return
+     */
     @RequestMapping(path = "/logout",method = RequestMethod.GET)
     public String logout(@CookieValue("ticket") String ticket){
         userService.logout(ticket);
+        SecurityContextHolder.clearContext();
         return "redirect:/login";
     }
 }

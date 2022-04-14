@@ -34,6 +34,12 @@ public class HomeController implements CommunityConstant {
     @Autowired
     private LikeService likeService;
 
+    /***
+     * 主页
+     * @param model
+     * @param page
+     * @return
+     */
     @RequestMapping(path = "/index",method = RequestMethod.GET)
     public String getIndexPage(Model model, Page page){
         //方法调用之前，SpringMVC会自动实例化Model,并将Page注入Model
@@ -59,8 +65,22 @@ public class HomeController implements CommunityConstant {
         model.addAttribute("discussPosts",discussPosts);
         return "/index";
     }
+
+    /***
+     * 错误提示
+     * @return
+     */
     @RequestMapping(path = "/error",method = RequestMethod.GET)
     public String getErrorPage(){
         return "error/500";
+    }
+
+    /***
+     * 拒绝访问时的提示页面
+     * @return
+     */
+    @RequestMapping(path = "/denied", method = {RequestMethod.GET})
+    public String getDeniedPage() {
+        return "/error/404";
     }
 }

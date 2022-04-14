@@ -37,6 +37,12 @@ public class DiscussPostController implements CommunityConstant {
     @Autowired
     private EventProducer eventProducer;
 
+    /***
+     * 发帖
+     * @param title  标题
+     * @param content  内容
+     * @return
+     */
     @RequestMapping(path = "/add",method = RequestMethod.POST)
     @ResponseBody
     public String addDiscussPost(String title,String content){
@@ -63,6 +69,13 @@ public class DiscussPostController implements CommunityConstant {
         return CommunityUtil.getJSONString(0,"发布成功!");
     }
 
+    /**
+     * 帖子详情
+     * @param discussPostId
+     * @param model
+     * @param page
+     * @return
+     */
     @RequestMapping(path = "/detail/{discussPostId}",method = RequestMethod.GET)
     public String getDiscussPost(@PathVariable("discussPostId") int discussPostId, Model model, Page page){
         //查询帖子
@@ -139,5 +152,59 @@ public class DiscussPostController implements CommunityConstant {
         }
         model.addAttribute("comments",commentVoList);
         return "/site/discuss-detail";
+    }
+
+    //type : 0-普通  1-置顶
+    //status : 0-正常    1-精华     2-拉黑
+    //置顶
+    @RequestMapping(path = "/top",method = RequestMethod.POST)
+    @ResponseBody
+    public String setTop(int id){
+        discussPostService.updateType(id,1);
+
+        //重新触发发帖事件，相当在索引中更新帖子数据
+        Event event = new Event()
+                .setTopic(TOPIC_PUBLISH)
+                .setUserId(hostHolder.getUser().getId())
+                .setEntityType(ENTITY_TYPE_POST)
+                .setEntityId(id);
+        eventProducer.fireEvent(event);
+
+        return CommunityUtil.getJSONString(0);
+    }
+
+    //加精
+    @RequestMapping(path = "/wonderful",method = RequestMethod.POST)
+    @ResponseBody
+    public String setWonderful(int id){
+        discussPostService.updateStatus(id,1);
+
+        //重新触发发帖事件，相当在ES索引中更新帖子数据
+        Event event = new Event()
+                .setTopic(TOPIC_PUBLISH)
+                .setUserId(hostHolder.getUser().getId())
+                .setEntityType(ENTITY_TYPE_POST)
+                .setEntityId(id);
+        eventProducer.fireEvent(event);
+
+        return CommunityUtil.getJSONString(0);
+    }
+
+
+    //删除
+    @RequestMapping(path = "/delete",method = RequestMethod.POST)
+    @ResponseBody
+    public String setDelete(int id){
+        discussPostService.updateStatus(id,2);
+
+        //重新触发发帖事件，相当在ES索引中更新帖子数据
+        Event event = new Event()
+                .setTopic(TOPIC_DELETE)
+                .setUserId(hostHolder.getUser().getId())
+                .setEntityType(ENTITY_TYPE_POST)
+                .setEntityId(id);
+        eventProducer.fireEvent(event);
+
+        return CommunityUtil.getJSONString(0);
     }
 }

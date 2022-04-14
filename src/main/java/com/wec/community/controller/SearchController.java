@@ -30,6 +30,13 @@ public class SearchController implements CommunityConstant {
     @Autowired
     private LikeService likeService;
 
+    /***
+     * 搜索贴
+     * @param keyword 搜索的关键词
+     * @param page
+     * @param model
+     * @return
+     */
     ///search?keyword=xxx
     @RequestMapping(path = "/search",method = RequestMethod.GET)
     public String search(String keyword, Page page, Model model){
@@ -37,25 +44,27 @@ public class SearchController implements CommunityConstant {
         org.springframework.data.domain.Page<DiscussPost> searchResult =
         elasticsearchService.searchDiscussPost(keyword, page.getCurrent() - 1, page.getLimit());
 
-        //聚合数据
-        List<Map<String, Object>> discussPost = new ArrayList<>();
-        for (DiscussPost post : searchResult){
-            Map<String, Object> map = new HashMap<>();
-            //贴子
-            map.put("post",post);
-            //作者
-            map.put("user",userService.findUserById(post.getUserId()));
-            //点赞数量
-            map.put("likeCount",likeService.findEntityLikeCount(ENTITY_TYPE_POST, post.getId()));
+        if (searchResult != null) {
+            //聚合数据
+            List<Map<String, Object>> discussPost = new ArrayList<>();
+            for (DiscussPost post : searchResult) {
+                Map<String, Object> map = new HashMap<>();
+                //贴子
+                map.put("post", post);
+                //作者
+                map.put("user", userService.findUserById(post.getUserId()));
+                //点赞数量
+                map.put("likeCount", likeService.findEntityLikeCount(ENTITY_TYPE_POST, post.getId()));
 
-            discussPost.add(map);
+                discussPost.add(map);
+            }
+            model.addAttribute("discussPost", discussPost);
+            model.addAttribute("keyword", keyword);
+
+            //分页信息
+            page.setPath("/search?keyword=" + keyword);
+            page.setRows(searchResult == null ? 0 : (int) searchResult.getTotalElements());
         }
-        model.addAttribute("discussPost",discussPost);
-        model.addAttribute("keyword",keyword);
-
-        //分页信息
-        page.setPath("/search?keyword="+keyword);
-        page.setRows(searchResult == null?0: (int) searchResult.getTotalElements());
         return "/site/search";
 
     }

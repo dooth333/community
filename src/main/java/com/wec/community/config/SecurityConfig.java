@@ -50,13 +50,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements Comm
                         AUTHORITY_ADMIN
                 )
                 .antMatchers(
+                        //版主的单独功能
                         "/discuss/top",
                         "/discuss/wonderful"
                 ).hasAnyAuthority(
                         AUTHORITY_MODERATOR
                 )
                 .antMatchers(
-                        "/discuss/delete"
+                        //管理员才能用的请求
+                        "/discuss/delete",
+                        "/data/**"
                 ).hasAnyAuthority(
                         AUTHORITY_ADMIN
                 )

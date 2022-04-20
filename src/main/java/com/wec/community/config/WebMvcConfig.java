@@ -1,9 +1,6 @@
 package com.wec.community.config;
 
-import com.wec.community.controller.interceptor.Alphalnterceptor;
-import com.wec.community.controller.interceptor.LoginRequiredInterceptor;
-import com.wec.community.controller.interceptor.LoginTicketInterceptor;
-import com.wec.community.controller.interceptor.MessageInterceptor;
+import com.wec.community.controller.interceptor.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -22,6 +19,11 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     @Autowired
     private MessageInterceptor messageInterceptor;
+
+    //注入UA和DAU的数据统计的拦截器进行配置
+    @Autowired
+    private DataInterceptor dataInterceptor;
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(alphalnterceptor)//增加拦截
@@ -36,7 +38,11 @@ public class WebMvcConfig implements WebMvcConfigurer {
 //        .excludePathPatterns("/**/*.css","/**/*.js","/**/*.png","/**/*.jpg","/**/*.jpeg");//设置排除拦截的目录(/**表示目录下所有文件夹)
                 //设置拦截全部请求（不设置add）
 
+
         registry.addInterceptor(messageInterceptor)//增加拦截
+                .excludePathPatterns("/**/*.css","/**/*.js","/**/*.png","/**/*.jpg","/**/*.jpeg");//设置排除拦截的目录(/**表示目录下所有文件夹)
+
+        registry.addInterceptor(dataInterceptor)//增加拦截
                 .excludePathPatterns("/**/*.css","/**/*.js","/**/*.png","/**/*.jpg","/**/*.jpeg");//设置排除拦截的目录(/**表示目录下所有文件夹)
     }
 }

@@ -9,11 +9,11 @@ import org.springframework.test.context.ContextConfiguration;
 
 import java.util.Date;
 
-@SpringBootTest
-@ContextConfiguration(classes = CommunityApplication.class)
+/*@SpringBootTest
+@ContextConfiguration(classes = CommunityApplication.class)*/
 public class CaffeineTest {
 
-    @Autowired
+   /* @Autowired
     private DiscussPostService discussPostService;
 
     @Test
@@ -31,13 +31,13 @@ public class CaffeineTest {
 
     @Test
     public void testCache(){
-/*        System.out.println(discussPostService.findDiscussPosts(0,0,10,1));
+*//*        System.out.println(discussPostService.findDiscussPosts(0,0,10,1));
         System.out.println(discussPostService.findDiscussPosts(0,0,10,1));
         System.out.println(discussPostService.findDiscussPosts(0,0,10,1));
-        System.out.println(discussPostService.findDiscussPosts(0,0,10,0));*/
+        System.out.println(discussPostService.findDiscussPosts(0,0,10,0));*//*
         System.out.println(discussPostService.findDiscussPostRows(0));
         System.out.println(discussPostService.findDiscussPostRows(0));
         System.out.println(discussPostService.findDiscussPostRows(0));
-    }
+    }*/
 
 }

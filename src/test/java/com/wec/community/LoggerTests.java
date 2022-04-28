@@ -17,7 +17,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  */
 public class LoggerTests {
 
-    private static final Logger logger = LoggerFactory.getLogger(LoggerTests.class);
+    /*private static final Logger logger = LoggerFactory.getLogger(LoggerTests.class);
 
 
     @Test
@@ -27,5 +27,5 @@ public class LoggerTests {
         logger.info("infoLog");
         logger.warn("warnLog");
         logger.error("errorLog");
-    }
+    }*/
 }

@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 @ContextConfiguration(classes = CommunityApplication.class)
 public class RedisTests {
 
-    @Autowired
+   /* @Autowired
     private RedisTemplate redisTemplate;
 
     @Test
@@ -224,7 +224,7 @@ public class RedisTests {
         System.out.println(redisTemplate.opsForValue().getBit(redisKey,5));
         System.out.println(redisTemplate.opsForValue().getBit(redisKey,6));
 
-    }
+    }*/
 
 
 

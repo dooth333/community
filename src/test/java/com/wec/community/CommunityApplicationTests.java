@@ -19,8 +19,9 @@ import java.util.Date;
 
 @SpringBootTest
 @ContextConfiguration(classes = CommunityApplication.class)
-class CommunityApplicationTests implements ApplicationContextAware {
-	private ApplicationContext applicationContext;
+class CommunityApplicationTests {
+		//implements ApplicationContextAware {
+	/*private ApplicationContext applicationContext;
 
 	@Override
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
@@ -66,6 +67,6 @@ class CommunityApplicationTests implements ApplicationContextAware {
 		DiscussPost discussPost = new DiscussPost(001,"有钱没钱回家过年","过年了过年了过年了",0,0,new Date(),0,0);
 
 		discussPostMapper.insertDiscussPost(discussPost);
-	}
+	}*/
 
 }

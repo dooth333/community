@@ -3,9 +3,9 @@ package com.wec.community;
 import java.util.Date;
 
 public class shiyanTest {
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
 
-      /*  表一:
+      *//*  表一:
         double r1[] = {13.5, 12.8, 12.8, 13.5};
         double r2[] = {27.0, 25.6, 25.6, 27.0};
         double r3[] = {40.5, 38.3, 38.3, 40.5};
@@ -15,10 +15,10 @@ public class shiyanTest {
         double r7[] = {94.4, 89.2, 89.2, 94.3};
         double r8[] = {107.6, 101.6, 101.6, 107.5};
         double r9[] = {121.0, 114.1, 114.2, 120.9};
-        double r10[] = {134.6, 126.7, 126.8, 134.4};*/
+        double r10[] = {134.6, 126.7, 126.8, 134.4};*//*
 
 
-       /* double r1[] = {14.4, 11.9, 11.9, 14.3};
+       *//* double r1[] = {14.4, 11.9, 11.9, 14.3};
         double r2[] = {27.3, 25.2, 25.2, 27.3};
         double r3[] = {40.4, 38.3, 38.3, 40.5};
         double r4[] = {53.5, 51.4, 51.4, 53.5};
@@ -27,7 +27,7 @@ public class shiyanTest {
         double r7[] = {92.8, 90.6, 90.7, 92.7};
         double r8[] = {105.7, 103.6, 103.6, 105.7};
         double r9[] = {118.5, 116.4, 116.4, 118.5};
-        double r10[] = {131.4, 129.1, 129.1, 131.2};*/
+        double r10[] = {131.4, 129.1, 129.1, 131.2};*//*
 
         double r1[] = {31.9, 28.1, 28.1, 31.8};
         double r2[] = {45.2, 41.6, 41.6, 45.2};
@@ -70,6 +70,6 @@ public class shiyanTest {
             s += r[i];
         }
         System.out.println(s/4.0);
-    }
+    }*/
 
 }

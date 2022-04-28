@@ -17,7 +17,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @ContextConfiguration(classes = CommunityApplication.class)
 public class KafkaTests {
 
-    @Autowired
+    /*@Autowired
     private KafkaProducer kafkaProducer;
 
     @Test
@@ -32,11 +32,11 @@ public class KafkaTests {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
 }
 
-@Component
+/*@Component
 class KafkaProducer {
 
     @Autowired
@@ -55,4 +55,4 @@ class KafkaConsumer {
     public void handleMessage(ConsumerRecord record) {
         System.out.println(record.value());
     }
-}
+}*/

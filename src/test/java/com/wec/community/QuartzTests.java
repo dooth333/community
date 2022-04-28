@@ -14,7 +14,7 @@ import org.springframework.test.context.ContextConfiguration;
 @ContextConfiguration(classes = CommunityApplication.class)
 public class QuartzTests {
 
-    @Autowired
+    /*@Autowired
     private Scheduler scheduler;//注入调度器
 
 
@@ -27,6 +27,6 @@ public class QuartzTests {
         } catch (SchedulerException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
 }

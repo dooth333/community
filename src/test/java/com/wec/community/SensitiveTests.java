@@ -9,7 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 @SpringBootTest
 @ContextConfiguration(classes = CommunityApplication.class)
 public class SensitiveTests {
-    @Autowired
+    /*@Autowired
     private SensitiveFilter sensitiveFilter;
 
     @Test
@@ -17,5 +17,5 @@ public class SensitiveTests {
         String text = "这里面可以吸毒，可以嫖￥娼，可以￥赌￥博￥，还可以开票，哈哈哈哈";
         String filter = sensitiveFilter.filter(text);
         System.out.println(filter);
-    }
+    }*/
 }

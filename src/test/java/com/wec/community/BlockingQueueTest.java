@@ -5,17 +5,17 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 public class BlockingQueueTest {
-    public static void main(String[] args) {
+/*    public static void main(String[] args) {
 
         BlockingQueue queue = new ArrayBlockingQueue(10); //设置队列缓存个数
         new Thread(new Producer(queue)).start();
         new Thread(new Consumer(queue)).start();
         new Thread(new Consumer(queue)).start();
         new Thread(new Consumer(queue)).start();
-    }
+    }*/
 }
 
-class Producer implements Runnable{
+/*class Producer implements Runnable{
     private BlockingQueue<Integer> queue;
     public Producer(BlockingQueue<Integer> queue) {
         this.queue = queue;
@@ -54,4 +54,4 @@ class Consumer implements Runnable{
             e.printStackTrace();
        }
     }
-}
+}*/

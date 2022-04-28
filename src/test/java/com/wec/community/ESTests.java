@@ -35,7 +35,7 @@ import java.util.List;
 @SpringBootTest
 @ContextConfiguration(classes = CommunityApplication.class)
 public class ESTests {
-    @Autowired
+    /*@Autowired
     private DiscussPostMapper discussPostMapper;
 
     @Autowired
@@ -182,5 +182,5 @@ public class ESTests {
         System.out.println(page.getNumber());
         System.out.println(page.getSize());
         page.forEach(System.out::println);
-    }
+    }*/
 }

@@ -9,7 +9,6 @@ import com.wec.community.util.CommunityUtil;
 import com.wec.community.util.MailClient;
 import com.wec.community.util.RedisKeyUtil;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.SystemUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;

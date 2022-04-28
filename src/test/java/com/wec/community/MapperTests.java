@@ -15,7 +15,7 @@ import java.util.List;
 @SpringBootTest
 @ContextConfiguration(classes = CommunityApplication.class)
     public class MapperTests {
-        @Autowired
+        /*@Autowired
         private UserMapper userMapper;
 
         @Autowired
@@ -118,6 +118,6 @@ import java.util.List;
     public void messageTest2(){
             List<Integer> ids = new ArrayList<>();
           messageMapper.updateStatus(ids,0);
-    }
+    }*/
     }
 

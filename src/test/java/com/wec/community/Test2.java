@@ -2,8 +2,8 @@ package com.wec.community;
 
 public class Test2 {
     public static void main(String[] args) {
-        System.out.println("aaaa");
-       /*double d[] = {46.889,46.622,46.262,44.414,45.399,43.357};
+     /*   System.out.println("aaaa");
+       *//*double d[] = {46.889,46.622,46.262,44.414,45.399,43.357};
        double s = 0;
         for (int i = 0; i < d.length; i++) {
             s += d[i];
@@ -25,11 +25,11 @@ public class Test2 {
         double Er = Math.sqrt((U/p)*(U/p) + 0.0001+ (0.4/589.3)*(0.4/589.3));
         System.out.println("Er:"+Er);
         double ur = R*Er;
-        System.out.println(ur);*/
+        System.out.println(ur);*//*
         double s = (1.0/600.0)*(Math.sin(20.467));
         s = Math.sin(30);
         System.out.println(s);
-
+*/
 
     }
 }

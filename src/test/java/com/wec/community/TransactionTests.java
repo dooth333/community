@@ -9,7 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 @SpringBootTest
 @ContextConfiguration(classes = CommunityApplication.class)
 public class TransactionTests {
-    @Autowired
+    /*@Autowired
     private AlphaService alphaService;
     @Test
     public void TransactionTest1(){
@@ -21,7 +21,7 @@ public class TransactionTests {
     public void TransactionTest2(){
         Object o = alphaService.save2();
         System.out.println(o);
-    }
+    }*/
 
 
 }

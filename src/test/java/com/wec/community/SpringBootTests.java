@@ -84,7 +84,7 @@ public class SpringBootTests{
 @ContextConfiguration(classes = CommunityApplication.class)
 public class SpringBootTests {
 
-    @Autowired
+   /* @Autowired
     private DiscussPostService discussPostService;
 
     private DiscussPost data;
@@ -145,6 +145,6 @@ public class SpringBootTests {
 
         DiscussPost post = discussPostService.findDiscussPostById(data.getId());
         Assert.assertEquals(2000.00, post.getScore(), 2);
-    }
+    }*/
 
 }

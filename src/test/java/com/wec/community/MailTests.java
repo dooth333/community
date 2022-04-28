@@ -12,7 +12,7 @@ import org.thymeleaf.context.Context;
 @ContextConfiguration(classes = CommunityApplication.class)
 public class MailTests {
 
-    @Autowired
+   /* @Autowired
     private MailClient mailClient;
 
     @Autowired
@@ -30,5 +30,5 @@ public class MailTests {
         String process = templateEngine.process("/mail/demo", context);
         System.out.println(process);
         mailClient.sendMail("2729420403@qq.com","HTML",process);
-    }
+    }*/
 }

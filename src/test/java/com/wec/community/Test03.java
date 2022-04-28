@@ -1,7 +1,7 @@
 package com.wec.community;
 
 public class Test03 {
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         double c[] = {30,
                 32,
                 34,
@@ -40,5 +40,5 @@ public class Test03 {
 //        System.out.println(a);
 //        System.out.println(b);
 
-    }
+    }*/
 }

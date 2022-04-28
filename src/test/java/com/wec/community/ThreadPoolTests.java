@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit;
 @ContextConfiguration(classes = CommunityApplication.class)
 public class ThreadPoolTests {
 
-    private static final Logger logger = LoggerFactory.getLogger(ThreadPoolTests.class);
+    /*private static final Logger logger = LoggerFactory.getLogger(ThreadPoolTests.class);
 
     //JDK普通线程池
     private ExecutorService executorService = Executors.newFixedThreadPool(5);//初始化后包括5个线程
@@ -122,7 +122,7 @@ public class ThreadPoolTests {
     @Test
     public void testThreadPoolTaskSchedulerSimple(){
         sleep(30000);
-    }
+    }*/
 
 
 }
